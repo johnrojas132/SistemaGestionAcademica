@@ -8,11 +8,11 @@ package sistemagestoracademica;
  *
  * @author Chess
  */
-public class Estudiante extends Persona {
+public class Estudiante extends Persona implements Evaluable {
 
-    private String carrera;
-    
-    //Clase estudiante version final
+   private String carrera;
+
+    // Clase estudiante versión final
     // Constructor
     public Estudiante(String nombre, String identificacion, Direccion direccion, String carrera) {
         super(nombre, identificacion, direccion, TipoPersona.ESTUDIANTE);
@@ -43,9 +43,15 @@ public class Estudiante extends Persona {
         this.carrera = carrera;
     }
 
-    // Método para ver que carrera esta cursando el estudiante
+    // Método sobrescrito de Persona
     @Override
     public void describirRol() {
         System.out.println("Soy un estudiante de la carrera: " + carrera);
+    }
+
+    // Método de la interfaz Evaluable
+    @Override
+public void evaluar() {
+    System.out.println("El estudiante está siendo evaluado.");
     }
 }

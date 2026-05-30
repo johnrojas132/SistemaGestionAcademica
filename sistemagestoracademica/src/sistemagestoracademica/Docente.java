@@ -11,26 +11,29 @@ package sistemagestoracademica;
 public class Docente extends Persona {
 
     // Atributo propio del docente 
+    // Atributo propio del docente
     private String especialidad;
 
-    // Constructor recibe los datos básicos  y la  especialidad
-    public Docente(String nombre, String identificacion, Direccion direccion, String especialidad) {
-        // Llamamos al constructor de la clase padre (Persona)
+    // Constructor
+    public Docente(String nombre, String identificacion,
+                   Direccion direccion, String especialidad) {
+
+        // Llama al constructor de Persona
         super(nombre, identificacion, direccion, TipoPersona.DOCENTE);
+
         this.especialidad = especialidad;
     }
 
-    // Método para mostrar toda la información del docente
+    // Método para mostrar los datos del docente
     public void mostrarDatosDocente() {
+
         System.out.println("--------- DATOS DEL DOCENTE ------------");
 
-        // Usamos los getters heredados de Persona
         System.out.println("Nombre: " + getNombre());
         System.out.println("Identificación: " + getIdentificacion());
-        System.out.println("Especialidad del docente: " + especialidad);
+        System.out.println("Especialidad: " + especialidad);
         System.out.println("Tipo de persona: DOCENTE");
 
-        // Verificamos que la dirección exista antes de usarla
         if (getDireccion() != null) {
             System.out.println("Provincia: " + getDireccion().getProvincia());
             System.out.println("Ciudad: " + getDireccion().getCiudad());
@@ -39,17 +42,20 @@ public class Docente extends Persona {
         }
     }
 
-    // Getter de especialidad
+    // Getter
     public String getEspecialidad() {
         return especialidad;
     }
 
-    // Setter de especialidad
+    // Setter
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
 
-    // Método sobrescrito: describe el rol del docente
+    /*
+     * Método sobrescrito de Persona.
+     * Describe el rol del docente.
+     */
     @Override
     public void describirRol() {
         System.out.println("Soy un docente especializado en: " + especialidad);
